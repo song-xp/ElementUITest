@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxp.dao.UserDao">
+	<select id="findAll" resultType="User">
+		select * from users
+	</select>
+
+	<insert id="save" parameterType="User">
+		insert into users(name,birth,address,sex)
+		values(#{name},#{birth},#{address},#{sex})
+	</insert>
+
+	<delete id="delete" parameterType="Integer">
+		delete from users where id=#{id}
+	</delete>
+
+	<update id="update" parameterType="User">
+		update users
+		set name=#{name},birth=#{birth},address=#{address},sex=#{sex}
+		where id=#{id}
+	</update>
+</mapper>
